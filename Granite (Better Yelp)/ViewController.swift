@@ -17,8 +17,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var tasksTextField: UITextField!
     
-    @IBAction func submitButton(_ sender: Any) {
-    }
+    //The submit button
+    //@IBAction func submitButton(_ sender: Any) {
+    //}
     
     
     
