@@ -10,6 +10,10 @@
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyUsers.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
 		1C9CED211F26BD3D002C4BCA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */; };
+		1C9CED2D1F2778E8002C4BCA /* LocationOfUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2C1F2778E8002C4BCA /* LocationOfUsers.swift */; };
+		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
+		1C9CED331F27D3BF002C4BCA /* HardCodedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED321F27D3BF002C4BCA /* HardCodedUsers.swift */; };
+		1CCA45CC1F27DBF3005C062C /* HardCodedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA45CB1F27DBF3005C062C /* HardCodedUserServices.swift */; };
 		1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F01F24067D0085E102 /* AppDelegate.swift */; };
 		1CD906F31F24067D0085E102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F21F24067D0085E102 /* ViewController.swift */; };
 		1CD906F61F24067D0085E102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F41F24067D0085E102 /* Main.storyboard */; };
@@ -22,6 +26,10 @@
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyUsers.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C9CED2C1F2778E8002C4BCA /* LocationOfUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationOfUsers.swift; sourceTree = "<group>"; };
+		1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1C9CED321F27D3BF002C4BCA /* HardCodedUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardCodedUsers.swift; sourceTree = "<group>"; };
+		1CCA45CB1F27DBF3005C062C /* HardCodedUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardCodedUserServices.swift; sourceTree = "<group>"; };
 		1CD906ED1F24067D0085E102 /* Granite (Better Yelp).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Granite (Better Yelp).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD906F01F24067D0085E102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CD906F21F24067D0085E102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,9 +55,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C9CED2B1F2778BA002C4BCA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1C9CED2C1F2778E8002C4BCA /* LocationOfUsers.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		1C9CED311F27D375002C4BCA /* Hardcoded Model Users */ = {
+			isa = PBXGroup;
+			children = (
+				1C9CED321F27D3BF002C4BCA /* HardCodedUsers.swift */,
+			);
+			name = "Hardcoded Model Users";
+			sourceTree = "<group>";
+		};
+		1CCA45CA1F27DBDB005C062C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA45CB1F27DBF3005C062C /* HardCodedUserServices.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		1CD906E41F24067D0085E102 = {
 			isa = PBXGroup;
 			children = (
+				1CCA45CA1F27DBDB005C062C /* Service */,
+				1C9CED311F27D375002C4BCA /* Hardcoded Model Users */,
+				1C9CED2B1F2778BA002C4BCA /* Service */,
 				1CD906EF1F24067D0085E102 /* Granite (Better Yelp) */,
 				1CD906EE1F24067D0085E102 /* Products */,
 				4925F09C19B95B2B87362CBC /* Pods */,
@@ -76,6 +111,7 @@
 				1CD906FC1F24067D0085E102 /* Info.plist */,
 				1C9CED1A1F266FF9002C4BCA /* ListNearbyUsers.swift */,
 				1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */,
+				1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */,
 			);
 			path = "Granite (Better Yelp)";
 			sourceTree = "<group>";
@@ -133,6 +169,7 @@
 				TargetAttributes = {
 					1CD906EC1F24067D0085E102 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = R4WEEFNVWZ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -222,8 +259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9CED2D1F2778E8002C4BCA /* LocationOfUsers.swift in Sources */,
+				1C9CED331F27D3BF002C4BCA /* HardCodedUsers.swift in Sources */,
 				1CD906F31F24067D0085E102 /* ViewController.swift in Sources */,
 				1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */,
+				1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */,
+				1CCA45CC1F27DBF3005C062C /* HardCodedUserServices.swift in Sources */,
 				1C9CED1B1F266FF9002C4BCA /* ListNearbyUsers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +389,7 @@
 			baseConfigurationReference = 2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
 				INFOPLIST_FILE = "Granite (Better Yelp)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -362,6 +404,7 @@
 			baseConfigurationReference = 3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
 				INFOPLIST_FILE = "Granite (Better Yelp)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
