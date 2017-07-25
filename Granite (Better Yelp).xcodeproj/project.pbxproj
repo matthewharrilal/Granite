@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyUsers.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
+		1C9CED211F26BD3D002C4BCA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */; };
 		1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F01F24067D0085E102 /* AppDelegate.swift */; };
 		1CD906F31F24067D0085E102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F21F24067D0085E102 /* ViewController.swift */; };
 		1CD906F61F24067D0085E102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F41F24067D0085E102 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyUsers.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CD906ED1F24067D0085E102 /* Granite (Better Yelp).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Granite (Better Yelp).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD906F01F24067D0085E102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CD906F21F24067D0085E102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				1CD906F91F24067D0085E102 /* LaunchScreen.storyboard */,
 				1CD906FC1F24067D0085E102 /* Info.plist */,
 				1C9CED1A1F266FF9002C4BCA /* ListNearbyUsers.swift */,
+				1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */,
 			);
 			path = "Granite (Better Yelp)";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9CED211F26BD3D002C4BCA /* GoogleService-Info.plist in Resources */,
 				1CD906FB1F24067D0085E102 /* LaunchScreen.storyboard in Resources */,
 				1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */,
 				1CD906F61F24067D0085E102 /* Main.storyboard in Resources */,

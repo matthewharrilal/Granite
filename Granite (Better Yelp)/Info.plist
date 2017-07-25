@@ -25,7 +25,9 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>I want to be able to determine where you are located</string>
+	<string>This application wants to pin where you are located </string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This application always wants to know where you are located</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
