@@ -13,6 +13,7 @@ target 'Granite (Better Yelp)' do
  pod 'Firebase/Database'
  pod 'Firebase/Storage'
  pod 'Kingfisher', '~> 3.0'
-
+	pod ‘GoogleMaps’
+	pod ‘GooglePlaces’
 
 end

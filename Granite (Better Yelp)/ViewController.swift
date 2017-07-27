@@ -12,15 +12,22 @@ import CoreLocation
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-      
+    
+    @IBOutlet weak var hardCodedTextField: UITextField!
+    
     // Map
     @IBOutlet weak var map: MKMapView!
     
     @IBOutlet weak var interestsTextField: UITextField!
     
-    @IBAction func applyUnwind(_ segue: UIStoryboardSegue) {
     
-
+    
+    var hardCodedUsers: HardCodedUsers?
+    
+    
+    @IBAction func applyUnwind(_ segue: UIStoryboardSegue) {
+        
+        
     }
     
     
@@ -30,15 +37,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("The submit button has been tapped")
         
         // We should get in the habit of using print statements to see if our code is executing properly
+        
     }
     
     var radius: Double = 50.0
     // Here we are essenitally declaring a new variable and what this variable is of type double and we set its value equalt 50 and the reason we are doing this is because we are basically setting it to match the default value of the slider to 50
-    // Refer to the settings view controller after this step to see what comes next 
+    // Refer to the settings view controller after this step to see what comes next
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
-      
+        
         
         // So essentially what we are doing is that we are creating a new let constant called location and setting that equl to the locations array and the very first element by setting the index value we want equal to 0 the reason we want the very first element is becuase we want the users most recent position, and the reason it is the first one rather than the last one because the array can also be populated with elements that we do not care about therefore we only care about the users most updated location therefore it would be the very first element of the array
         
@@ -55,7 +65,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // So basically in this line of code we are setting the region where as we declared it in the line previous to this code
         
         self.map.showsUserLocation = true
-        print(location.altitude) // This is optional if you want to know the users current altitude
+        //   print(location.altitude) // This is optional if you want to know the users current altitude
     }
     // But essentially this function will b
     
@@ -124,9 +134,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! ListNearbyPeople
         
+        // THE SETTINGS DOESNT WORK BUT WE CAN FOCIS ON THAT LATER
         if segue.identifier == "toSettings" {
-        
+            
             let vc = segue.destination as! SettingsViewController
             vc.parentVC = self
             vc.radiusValue = Float(radius)
@@ -134,7 +146,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
         }
         
+        if let identifier = segue.identifier {
+            if identifier == "submit" {
+                if let hardCodedUsers1 = hardCodedUsers {
+                    hardCodedUsers1.username = hardCodedTextField.text!
+                    viewController.tableView.reloadData()
+                    
+                }
+            }
+        }
+        
     }
+    
+    
     
 }
 
