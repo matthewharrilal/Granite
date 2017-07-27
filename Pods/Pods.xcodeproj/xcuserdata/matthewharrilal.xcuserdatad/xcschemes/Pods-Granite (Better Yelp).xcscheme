@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D11AEBE355F59869142CDBECD1D5EDD8"
+               BlueprintIdentifier = "91E9B4AE00F06A9E799D167EB0C751A2"
                BuildableName = "Pods_Granite__Better_Yelp_.framework"
                BlueprintName = "Pods-Granite (Better Yelp)"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D11AEBE355F59869142CDBECD1D5EDD8"
+            BlueprintIdentifier = "91E9B4AE00F06A9E799D167EB0C751A2"
             BuildableName = "Pods_Granite__Better_Yelp_.framework"
             BlueprintName = "Pods-Granite (Better Yelp)"
             ReferencedContainer = "container:Pods.xcodeproj">

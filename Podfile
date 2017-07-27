@@ -15,5 +15,6 @@ target 'Granite (Better Yelp)' do
  pod 'Kingfisher', '~> 3.0'
 	pod ‘GoogleMaps’
 	pod ‘GooglePlaces’
+	pod ‘GoogleMapsDirections’
 
 end
