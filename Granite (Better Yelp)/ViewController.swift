@@ -134,7 +134,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewController = segue.destination as! ListNearbyPeople
+        let viewController = segue.destination as? ListNearbyPeople
+         let viewController1  = segue.destination as? DirectionsViewController
         
         // THE SETTINGS DOESNT WORK BUT WE CAN FOCIS ON THAT LATER
         if segue.identifier == "toSettings" {
@@ -150,11 +151,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if identifier == "submit" {
                 if let hardCodedUsers1 = hardCodedUsers {
                     hardCodedUsers1.username = hardCodedTextField.text!
-                    viewController.tableView.reloadData()
+                    viewController?.tableView.reloadData()
                     
                 }
             }
         }
+        
+        if let identifier = segue.identifier {
+            if identifier == "toMap" {
+            viewController1?.view.reloadInputViews()
+            }
+        }
+        
         
     }
     
