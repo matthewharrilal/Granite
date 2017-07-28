@@ -29,8 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
     }
-    
-    
+      
     //The submit button
     @IBAction func submitButton(_ sender: Any) {
         print("User may have or have not submitted a task CHANGE THAT AND THEN THIS PRINT STATEMENT")

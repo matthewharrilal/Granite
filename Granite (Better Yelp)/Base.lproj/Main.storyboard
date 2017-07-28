@@ -114,16 +114,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsC-B6-Jr1">
-                                <rect key="frame" x="0.0" y="617" width="131" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="To go to map"/>
-                                <connections>
-                                    <segue destination="e68-jf-7cV" kind="presentation" identifier="toMap" id="L8K-pI-MhX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzm-lp-YIY">
-                                <rect key="frame" x="182" y="617" width="193" height="30"/>
+                                <rect key="frame" x="102" y="617" width="193" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="HardCoded Users Profile"/>
                                 <connections>
@@ -265,11 +257,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpA-Uh-dl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3689" y="78"/>
+            <point key="canvasLocation" x="3688.8000000000002" y="77.811094452773617"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aVK-9Z-Vw6"/>
-        <segue reference="L8K-pI-MhX"/>
     </inferredMetricsTieBreakers>
 </document>
