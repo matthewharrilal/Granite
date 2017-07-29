@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import GoogleMapsDirections
+import Alamofire
+import SwiftyJSON
 
 class DirectionsViewController: UIViewController {
     //40.606035, -73.767939
@@ -42,56 +45,13 @@ class DirectionsViewController: UIViewController {
         markerPinOnTheMap1.title = "Make School"
         markerPinOnTheMap1.map = mapView
         
+        let originCoord = CLLocationCoordinate2DMake(40.606035, -73.767939)
+        let destinationCoord = CLLocationCoordinate2DMake(40.718448, -74.002527)
         
-        let origin = "\(40.606035),\(-73.767939)"
-        let destination = "\(40.718448),\(-74.002527)"
         
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\("\(40.606035),\(-73.767939)")&destination=\("\(40.718448),\(-74.002527)")&mode=driving&key=API_KEY"
+        let apiKey = "AIzaSyAY5GU2CcLfugDcBvDPPYNNvTO3a9sWoyA"
         
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\("\(40.606035),\(-73.767939)")&destination=\("\(40.718448),\(-74.002527)")&mode=driving&key=API_KEY")
-        URLSession.shared.dataTask(with: url!, completionHandler: {
-            (data, response, error) in
-            if(error != nil){
-                print("error")
-            }else{
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
-                    let routes = json["routes"] as! NSArray
-                    self.mapView?.clear()
-                    
-                    OperationQueue.main.addOperation({
-                        for route in routes
-                        {
-                            let routeOverviewPolyline:NSDictionary = (route as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
-                            let points = routeOverviewPolyline.object(forKey: "points")
-                            let path = GMSPath.init(fromEncodedPath: points! as! String)
-                            let polyline = GMSPolyline.init(path: path)
-                            polyline.strokeWidth = 3
-                            
-                            let bounds = GMSCoordinateBounds(path: path!)
-                            self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
-                            
-                            polyline.map = self.mapView
-                            
-                        }
-                    })
-                }catch let error as NSError{
-                    print("error:\(error)")
-                }
-            }
-        }).resume()
     }
     
     
-    
-    
-    
-    
-    // func next() {
-    
-    // let nextLocation = CLLocationCoordinate2DMake(37.785834, -122.406417)
-    //mapView?.camera = GMSCameraPosition.camera(withLatitude: nextLocation.latitude, longitude: nextLocation.longitude, zoom: 15)
 }
-
-
-

@@ -55,8 +55,10 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - Kingfisher (3.10.3)
   - ObjectMapper (2.2.7)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - Alamofire
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -66,6 +68,16 @@ DEPENDENCIES:
   - GoogleMapsDirections
   - GooglePlaces
   - Kingfisher (~> 3.0)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: ebc305b69ecca005b636f20e0db4d07d19d333fa
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -84,7 +96,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
 
-PODFILE CHECKSUM: 3c0463ee127ccad7775e022d51ffce30fe5273d4
+PODFILE CHECKSUM: c61a2db6b71e6be3c07441f4128861d77acfc02e
 
 COCOAPODS: 1.2.1

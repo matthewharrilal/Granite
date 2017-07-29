@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
-		1C9CED211F26BD3D002C4BCA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */; };
 		1C9CED2D1F2778E8002C4BCA /* LocationOfUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2C1F2778E8002C4BCA /* LocationOfUsers.swift */; };
 		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
 		1C9CED331F27D3BF002C4BCA /* HardCodedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED321F27D3BF002C4BCA /* HardCodedUsers.swift */; };
@@ -20,14 +19,16 @@
 		1CD906F31F24067D0085E102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD906F21F24067D0085E102 /* ViewController.swift */; };
 		1CD906F61F24067D0085E102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F41F24067D0085E102 /* Main.storyboard */; };
 		1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F71F24067D0085E102 /* Assets.xcassets */; };
-		1CD906FB1F24067D0085E102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD906F91F24067D0085E102 /* LaunchScreen.storyboard */; };
+		1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */; };
+		1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */; };
+		1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */; };
+		1CEB0EB11F2CE73300386BD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB0EB01F2CE73300386BD3 /* GoogleService-Info.plist */; };
 		843AD75B2EF3F78DF1055EC7 /* Pods_Granite__Better_Yelp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyPeople.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C9CED2C1F2778E8002C4BCA /* LocationOfUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationOfUsers.swift; sourceTree = "<group>"; };
 		1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1C9CED321F27D3BF002C4BCA /* HardCodedUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardCodedUsers.swift; sourceTree = "<group>"; };
@@ -39,8 +40,11 @@
 		1CD906F21F24067D0085E102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1CD906F51F24067D0085E102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CD906F71F24067D0085E102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1CD906FA1F24067D0085E102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1CD906FC1F24067D0085E102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CD906FC1F24067D0085E102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Granite (Better Yelp)/Info.plist"; sourceTree = "<group>"; };
+		1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LogInStoryBoard.storyboard; path = "Granite (Better Yelp)/LogInStoryBoard.storyboard"; sourceTree = "<group>"; };
+		1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsername.swift; sourceTree = "<group>"; };
+		1CEB0EB01F2CE73300386BD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E4349A2686DF1731A73618D /* Pods-Granite (Better Yelp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).debug.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).debug.xcconfig"; sourceTree = "<group>"; };
 		36BFFA662D56B5C305C72DB2 /* Pods_Granite__Better_Yelp_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Granite__Better_Yelp_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3838B2F9B40CC77BF34C8F18 /* Pods-Granite (Better Yelp).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Granite (Better Yelp).release.xcconfig"; path = "Pods/Target Support Files/Pods-Granite (Better Yelp)/Pods-Granite (Better Yelp).release.xcconfig"; sourceTree = "<group>"; };
@@ -86,10 +90,12 @@
 		1CD906E41F24067D0085E102 = {
 			isa = PBXGroup;
 			children = (
+				1CEB0EAB1F2BA1C700386BD3 /* Info files */,
+				1CEB0EAA1F2BA1A200386BD3 /* Storyboards */,
 				1CCA45CA1F27DBDB005C062C /* Service */,
 				1C9CED311F27D375002C4BCA /* Hardcoded Model Users */,
 				1C9CED2B1F2778BA002C4BCA /* Service */,
-				1CD906EF1F24067D0085E102 /* Granite (Better Yelp) */,
+				1CD906EF1F24067D0085E102 /* View Controllers */,
 				1CD906EE1F24067D0085E102 /* Products */,
 				4925F09C19B95B2B87362CBC /* Pods */,
 				4DA83572763E5E5E2ABB5390 /* Frameworks */,
@@ -104,22 +110,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1CD906EF1F24067D0085E102 /* Granite (Better Yelp) */ = {
+		1CD906EF1F24067D0085E102 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1CD906F01F24067D0085E102 /* AppDelegate.swift */,
 				1CD906F21F24067D0085E102 /* ViewController.swift */,
-				1CD906F41F24067D0085E102 /* Main.storyboard */,
 				1CD906F71F24067D0085E102 /* Assets.xcassets */,
-				1CD906F91F24067D0085E102 /* LaunchScreen.storyboard */,
-				1CD906FC1F24067D0085E102 /* Info.plist */,
 				1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */,
-				1C9CED201F26BD3D002C4BCA /* GoogleService-Info.plist */,
 				1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */,
 				1CCA45CD1F29858D005C062C /* ProfileVewController.swift */,
 				1CCA45CF1F2A275A005C062C /* DirectionsViewController.swift */,
+				1CEB0EA61F2B9F2C00386BD3 /* LogInViewController.swift */,
+				1CEB0EAE1F2BD95A00386BD3 /* CreateUsername.swift */,
 			);
+			name = "View Controllers";
 			path = "Granite (Better Yelp)";
+			sourceTree = "<group>";
+		};
+		1CEB0EAA1F2BA1A200386BD3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1CD906F41F24067D0085E102 /* Main.storyboard */,
+				1CEB0EA81F2B9F8D00386BD3 /* LogInStoryBoard.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1CEB0EAB1F2BA1C700386BD3 /* Info files */ = {
+			isa = PBXGroup;
+			children = (
+				1CEB0EB01F2CE73300386BD3 /* GoogleService-Info.plist */,
+				1CD906FC1F24067D0085E102 /* Info.plist */,
+			);
+			name = "Info files";
 			sourceTree = "<group>";
 		};
 		4925F09C19B95B2B87362CBC /* Pods */ = {
@@ -203,9 +226,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9CED211F26BD3D002C4BCA /* GoogleService-Info.plist in Resources */,
-				1CD906FB1F24067D0085E102 /* LaunchScreen.storyboard in Resources */,
+				1CEB0EB11F2CE73300386BD3 /* GoogleService-Info.plist in Resources */,
 				1CD906F81F24067D0085E102 /* Assets.xcassets in Resources */,
+				1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */,
 				1CD906F61F24067D0085E102 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9CED2D1F2778E8002C4BCA /* LocationOfUsers.swift in Sources */,
+				1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */,
 				1C9CED331F27D3BF002C4BCA /* HardCodedUsers.swift in Sources */,
 				1CD906F31F24067D0085E102 /* ViewController.swift in Sources */,
 				1CD906F11F24067D0085E102 /* AppDelegate.swift in Sources */,
@@ -273,6 +297,7 @@
 				1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */,
 				1CCA45CC1F27DBF3005C062C /* HardCodedUserServices.swift in Sources */,
 				1CCA45D01F2A275A005C062C /* DirectionsViewController.swift in Sources */,
+				1CEB0EA71F2B9F2C00386BD3 /* LogInViewController.swift in Sources */,
 				1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,14 +311,7 @@
 				1CD906F51F24067D0085E102 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1CD906F91F24067D0085E102 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CD906FA1F24067D0085E102 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			path = "Granite (Better Yelp)";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

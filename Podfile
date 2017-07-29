@@ -16,5 +16,6 @@ target 'Granite (Better Yelp)' do
 	pod ‘GoogleMaps’
 	pod ‘GooglePlaces’
 	pod ‘GoogleMapsDirections’
-
+	 pod 'Alamofire'
+	pod 'SwiftyJSON', :git =>'https://github.com/SwiftyJSON/SwiftyJSON.git'	
 end

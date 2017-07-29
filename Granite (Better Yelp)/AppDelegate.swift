@@ -11,20 +11,40 @@ import FirebaseAuthUI
 import Firebase
 import GooglePlaces
 import GoogleMaps
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+//    func checkUserAgainstDatabase(completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+//        guard let currentUser = Auth.auth().currentUser else { return }
+//        currentUser.getTokenForcingRefresh(true) { (idToken, error) in
+//            if let error = error {
+//                completion(false, error as NSError?)
+//                print(error.localizedDescription)
+//            } else {
+//                completion(true, nil)
+//            }
+//        }
+//    }
+//
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
         
+       
+        let storyboard = UIStoryboard(name: "LogInStoryBoard", bundle: .main)
+        if let initialViewController = storyboard.instantiateInitialViewController() {
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        }
+        
         GMSServices.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")
         GMSPlacesClient.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")
+                
+        
         return true
         
     }
