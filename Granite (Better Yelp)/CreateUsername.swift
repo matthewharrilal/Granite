@@ -27,8 +27,16 @@ class CreateUsername: UIViewController {
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
         signUp()
-    
-        
+        textFieldIsEmpty()
+        if emailTextField.text == nil {
+            textFieldIsEmpty()
+        }
+        if usernameTextField.text == nil {
+            textFieldIsEmpty()
+        }
+        if passwordTextField.text == nil {
+            textFieldIsEmpty()
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,6 +46,16 @@ class CreateUsername: UIViewController {
         super.viewDidLoad()
         
     }
+    func textFieldIsEmpty() {
+        let ifTextFieldIsEmpty = UIAlertController(title: "Missing required text fields", message: "Please double check the text fields and see if you have entered them correctly", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Im Sorry", style: .default, handler: nil)
+        ifTextFieldIsEmpty.addAction(cancelAction)
+        self.present(ifTextFieldIsEmpty, animated: true, completion: nil)
+    }
+    
+    
+    
     func signUp() {
         guard let fullName = fullName.text
             else {
@@ -75,10 +93,10 @@ class CreateUsername: UIViewController {
             let userReference = self.databaseRef.child("users").child(uid)
             // We are essentailly holding the users user identification here
             let values = ["username": username, "email": email, "password": password, "Full Name": fullName]
-            // What we are essentially doing here is that we are creating these keys to hold these specific users information so for example we are creating a key to contain all our             
+            // What we are essentially doing here is that we are creating these keys to hold these specific users information so for example we are creating a key to contain all our
             userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {
-                print("error updating child values")
+                    print("error updating child values")
                     print(error)
                     return
                 }
