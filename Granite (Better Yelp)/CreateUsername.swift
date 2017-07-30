@@ -30,23 +30,51 @@ class CreateUsername: UIViewController {
     @IBAction func createAccount(_ sender: UIButton) {
         signUp()
         
-        if emailTextField.text == nil {
-            textFieldIsEmpty()
-        }
-        if usernameTextField.text == nil {
-            textFieldIsEmpty()
-        }
-        if passwordTextField.text == nil {
-            textFieldIsEmpty()
-        }
-        if agreementTextField.text == nil {
+        if fullName.text != "" {
+        
+        
+        } else{
         textFieldIsEmpty()
         }
         
-        if agreementTextField.text != "Yes" || agreementTextField.text != "No" {
-        ageConsentAgreement()
+        if emailTextField.text != "" {
+            
+        }
+        else{
+            textFieldIsEmpty()
+        }
+        if usernameTextField.text != "" {
+            
+        }else {
+            textFieldIsEmpty()
+        }
+        if passwordTextField.text != "" {
+            
+        }
+        else{
+            textFieldIsEmpty()
+            
+        }
+//        if agreementTextField.text != nil {
+//           
+//        } else {
+//            textFieldIsEmpty()
+//        }
+
+        if agreementTextField.text == "Yes"  {
+            
+            
+        }
+        else{
+            print("This statement is being printed because the user did not subjugate to the agreement of consent correctly")
+            textFieldIsEmpty()
+            
         }
         // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
+        
+        // The reason their is only one alert kind for both actions is becuase i dont think you can asssign two alerts to one button
+        
+        // If they say no to the consent agreement they can not have access to the application
         
     }
     override func didReceiveMemoryWarning() {
@@ -58,7 +86,7 @@ class CreateUsername: UIViewController {
         
     }
     func textFieldIsEmpty() {
-        let ifTextFieldIsEmpty = UIAlertController(title: "Missing required text fields", message: "Please double check the text fields and see if you have entered them correctly", preferredStyle: .alert)
+        let ifTextFieldIsEmpty = UIAlertController(title: "Missing required text fields", message: "Please double check the text fields and see if you have entered them correctly and in addition no individual is permitted to use this app unless they have consent from a guardian or is over the age of 18", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Im Sorry", style: .default, handler: nil)
         ifTextFieldIsEmpty.addAction(cancelAction)

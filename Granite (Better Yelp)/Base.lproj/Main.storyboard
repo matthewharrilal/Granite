@@ -132,6 +132,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Granite" id="lcb-20-Wmp">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="K0x-rb-gJS">
+                            <connections>
+                                <segue destination="R3I-mU-xDs" kind="show" id="rtR-jD-Fy1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="UK0-2I-h6N">
                             <connections>
                                 <segue destination="OKx-7B-xtH" kind="show" identifier="toSettings" id="Bl0-1F-IXi"/>
@@ -182,12 +187,20 @@
             </objects>
             <point key="canvasLocation" x="2808.8000000000002" y="99.400299850074973"/>
         </scene>
+        <!--LogInStoryBoard-->
+        <scene sceneID="ihL-AT-hcg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LogInStoryBoard" id="R3I-mU-xDs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWX-k9-YHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="472" y="93"/>
+        </scene>
         <!--"Interests"-->
         <scene sceneID="L8r-Mm-Zsb">
             <objects>
                 <navigationController storyboardIdentifier="MainStoryBoard" title="&quot;Interests&quot;" automaticallyAdjustsScrollViewInsets="NO" id="g0A-fI-H7I" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sJX-DX-6Ul">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sJX-DX-6Ul">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

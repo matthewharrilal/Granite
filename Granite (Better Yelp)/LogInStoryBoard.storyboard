@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="3346" y="162"/>
         </scene>
-        <!--Create Username-->
+        <!--CreateUsername-->
         <scene sceneID="wZr-xK-akW">
             <objects>
-                <viewController id="ijx-IL-w2l" customClass="CreateUsername" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CreateUsername" id="ijx-IL-w2l" customClass="CreateUsername" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mvk-NX-Gdh"/>
                         <viewControllerLayoutGuide type="bottom" id="fI7-2G-wcH"/>
@@ -194,6 +194,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kC3-vc-nSM"/>
+        <segue reference="uLi-yU-mO0"/>
     </inferredMetricsTieBreakers>
 </document>
