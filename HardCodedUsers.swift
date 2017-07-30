@@ -13,7 +13,7 @@ import FirebaseAuthUI
 import FirebaseDatabase
 import FirebaseAuth
 
-class HardCodedUsers {
+class HardCodedUsers: NSObject {
     var username: String
     
 // So what we are essentially doing in our code right now is that we want to make these hard coded users simply for the functionality of using the path fucntionality in google maps and the reason we even want to implement googlee maps in the first place is because we want have the abiltiy to not only have the table view cells be populated with users that have the same location as us but also to enable gettig the directions right now the as f this point we dont even care baout finding the users in the same location we just want to make a pathway to them using google maps 

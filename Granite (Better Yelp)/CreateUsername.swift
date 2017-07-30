@@ -23,11 +23,13 @@ class CreateUsername: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var agreementTextField: UITextField!
+    
     
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
         signUp()
-        textFieldIsEmpty()
+        
         if emailTextField.text == nil {
             textFieldIsEmpty()
         }
@@ -37,6 +39,15 @@ class CreateUsername: UIViewController {
         if passwordTextField.text == nil {
             textFieldIsEmpty()
         }
+        if agreementTextField.text == nil {
+        textFieldIsEmpty()
+        }
+        
+        if agreementTextField.text != "Yes" || agreementTextField.text != "No" {
+        ageConsentAgreement()
+        }
+        // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,6 +65,15 @@ class CreateUsername: UIViewController {
         self.present(ifTextFieldIsEmpty, animated: true, completion: nil)
     }
     
+    func ageConsentAgreement() {
+        let usersAgreement = UIAlertController(title:"Warning You Probably Spelled Something Wrong", message: "The reason you are getting this messgae is probaly becuase you did not make sure that your response was case sensitive make sure it is spelled the exact same way as the placeholder text", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Agree To These Terms", style:
+            .default, handler: nil )
+        usersAgreement.addAction(cancelAction)
+        self.present(usersAgreement, animated: true, completion: nil)
+        
+        
+    }
     
     
     func signUp() {

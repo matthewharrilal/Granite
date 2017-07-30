@@ -103,7 +103,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c0l-9m-bMu"/>
                                     <segue destination="yeZ-fa-3u8" kind="show" identifier="submit" id="eQo-sI-trS"/>
                                 </connections>
                             </button>
@@ -122,6 +121,13 @@
                                     <segue destination="ANz-VA-xNC" kind="presentation" id="aVK-9Z-Vw6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Want to sign out click me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNB-Q2-FZt">
+                                <rect key="frame" x="253" y="463" width="122" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -261,6 +267,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aVK-9Z-Vw6"/>
+        <segue reference="kcy-05-hbO"/>
     </inferredMetricsTieBreakers>
 </document>
