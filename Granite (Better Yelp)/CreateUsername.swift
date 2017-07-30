@@ -26,6 +26,9 @@ class CreateUsername: UIViewController {
     @IBOutlet weak var agreementTextField: UITextField!
     
     
+
+
+    
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
         signUp()
@@ -83,8 +86,14 @@ class CreateUsername: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
+    func dismissKeyboard() {
+    view.endEditing(true)
+    }
+    
     func textFieldIsEmpty() {
         let ifTextFieldIsEmpty = UIAlertController(title: "Missing required text fields", message: "Please double check the text fields and see if you have entered them correctly and in addition no individual is permitted to use this app unless they have consent from a guardian or is over the age of 18", preferredStyle: .alert)
         
