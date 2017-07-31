@@ -61,6 +61,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="newUser:" destination="tD3-Wo-HQQ" eventType="touchUpInside" id="bdX-rl-FaC"/>
                                     <segue destination="ijx-IL-w2l" kind="show" id="q8q-fM-o91"/>
                                 </connections>
                             </button>
@@ -174,10 +175,10 @@
             </objects>
             <point key="canvasLocation" x="2744.8000000000002" y="162.3688155922039"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="pTV-6b-Ycn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59V-aL-SQU" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59V-aL-SQU" customClass="MainNavigationController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8vb-PG-oOQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -194,6 +195,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uLi-yU-mO0"/>
+        <segue reference="kC3-vc-nSM"/>
     </inferredMetricsTieBreakers>
 </document>

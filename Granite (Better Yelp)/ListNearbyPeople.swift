@@ -21,7 +21,7 @@ class ListNearbyPeople: UITableViewController {
     var refHandle: UInt!
     
     
-    
+    //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,15 @@ class ListNearbyPeople: UITableViewController {
         fetchUsers()
     }
     func fetchUsers() {
-    // Fetches users from database
+        // Fetches users from database
         refHandle = databaseRef.child("users").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-            let user = HardCodedUsers(username: String(describing: DataSnapshot()) )
+                let user = HardCodedUsers(username: String(describing: dictionary))
+                
+                //let user = HardCodedUsers(username: String(describing: DataSnapshot()) )
                 
                 // What shpuld we pass in this username
-            
+                
                 //user.setValuesForKeys(dictionary)
                 self.hardCodedUsers.append(user)
                 
@@ -52,10 +54,11 @@ class ListNearbyPeople: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
     }
     
-   
-        
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hardCodedUsers.count
         
@@ -66,10 +69,23 @@ class ListNearbyPeople: UITableViewController {
         // Set cell contents
         return cell
         
-}
-
-
-
-
-
+    }
+    
+    // Remember when we are passing data from one view controller to another we need to use the perfrom for segue method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toProfile" {
+                //
+                print("Cell was tapped on")
+                if let profileViewController = segue.destination as? ProfileViewController {
+                    let indexPath = tableView.indexPathForSelectedRow!
+                    let hardUsers = hardCodedUsers[indexPath.row]
+                }
+                
+            }
+            
+        }
+    }
+    
+    
 }

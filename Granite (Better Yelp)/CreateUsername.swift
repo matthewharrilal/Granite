@@ -26,18 +26,18 @@ class CreateUsername: UIViewController {
     @IBOutlet weak var agreementTextField: UITextField!
     
     
-
-
+    
+    
     
     // Actions
     @IBAction func createAccount(_ sender: UIButton) {
         signUp()
         
         if fullName.text != "" {
-        
-        
+            
+            
         } else{
-        textFieldIsEmpty()
+            textFieldIsEmpty()
         }
         
         if emailTextField.text != "" {
@@ -58,12 +58,12 @@ class CreateUsername: UIViewController {
             textFieldIsEmpty()
             
         }
-//        if agreementTextField.text != nil {
-//           
-//        } else {
-//            textFieldIsEmpty()
-//        }
-
+        //        if agreementTextField.text != nil {
+        //
+        //        } else {
+        //            textFieldIsEmpty()
+        //        }
+        
         if agreementTextField.text == "Yes"  {
             
             
@@ -86,12 +86,12 @@ class CreateUsername: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     func dismissKeyboard() {
-    view.endEditing(true)
+        view.endEditing(true)
     }
     
     func textFieldIsEmpty() {
@@ -162,4 +162,23 @@ class CreateUsername: UIViewController {
         }
         
     }
+    
+    
+    func savingUser() {
+        
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        UserDefaults.standard.synchronize()
+        // Whenever we use user defaults we have to use this method or else the value will not get saved
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("user is automatically logged in from now on")
+        if let x = UserDefaults.standard.object(forKey: "isLoggedIn") {
+            emailTextField.text = x as! String
+            passwordTextField.text = x as! String
+        }
+    }
+    
+    
+    
 }
