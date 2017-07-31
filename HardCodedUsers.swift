@@ -25,18 +25,7 @@ class HardCodedUsers: NSObject {
         // So we already know that we use initializers as the blueprints for instances to come of the class so essentially what we are doing right now is that we have to set the argument label username equal to the property username we have created for the class so basically what we are doing is that every instance that comes as a result of this class is going tobe initalized with this username argument label that is of type string and we can pass in any string which will corespond to the users unique username not to be confused with their uid
     }
     
-    init?(snapshot: DataSnapshot) {
-        // ...
-        
-        super.init()
-    }
-    
-    init(uid: String, username: String) {
-        // ...
-        
-        super.init()
-    }
-
+ 
     // now lets not forget to implement data in a database we have to make a dictionary where the key would be what we type to retireve the data for that key
     // We are constructing a dictionary right now
     var dictValue: [String: Any] {

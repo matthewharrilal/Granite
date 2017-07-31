@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var newUserButton: UIButton!
     
     let databaseRef = Database.database().reference(fromURL: "https://granite3-dbd3a.firebaseio.com")
     //  Making our references at the start of the project makes our lives easier in terms of now we know what we already have and we just declare them here so we are not doing it while we go through the project
