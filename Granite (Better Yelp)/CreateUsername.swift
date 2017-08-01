@@ -149,7 +149,7 @@ class CreateUsername: UIViewController {
             }
             let userReference = self.databaseRef.child("users").child(uid)
             // We are essentailly holding the users user identification here
-            let values = ["username": username, "email": email, "password": password, "Full Name": fullName]
+            let values = ["username": username, "email": email, "password": password, "fullName": fullName]
             // What we are essentially doing here is that we are creating these keys to hold these specific users information so for example we are creating a key to contain all our
             userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {

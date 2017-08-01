@@ -18,12 +18,12 @@ import FirebaseAuth
 struct UserService {
     static func create(user: HardCodedUsers) {
         
-        create(user.username)
+        create(user.username, user.email, user.fullName, user.password)
         
     }
     
-    private static func create(_ username: String) {
-        let user = HardCodedUsers(username: username)
+    private static func create(_ username: String, _ email: String, _ fullName: String, _ password: String) {
+        let user = HardCodedUsers(username: username, email: email , fullName: fullName, password: password)
         let dict = user.dictValue
         let ref = Database.database().reference().child("UsernamesOfUsers").childByAutoId()
         // What this oneline of code above this essentially does is that it lets us give the user in the database a unique identification

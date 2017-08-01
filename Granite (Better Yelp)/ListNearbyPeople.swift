@@ -32,7 +32,8 @@ class ListNearbyPeople: UITableViewController {
         // Fetches users from database
         refHandle = databaseRef.child("users").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = HardCodedUsers(username: String(describing: dictionary))
+                let user = HardCodedUsers(username: dictionary["username"] as! String, email: dictionary["email"] as! String, fullName: dictionary["fullName"] as! String, password: dictionary["password"] as! String
+                )
                 
                 //let user = HardCodedUsers(username: String(describing: DataSnapshot()) )
                 
@@ -64,7 +65,8 @@ class ListNearbyPeople: UITableViewController {
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
+        // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
         cell.textLabel?.text = hardCodedUsers[indexPath.row].username
         // Set cell contents
         return cell
@@ -72,20 +74,30 @@ class ListNearbyPeople: UITableViewController {
     }
     
     // Remember when we are passing data from one view controller to another we need to use the perfrom for segue method
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if let identifier = segue.identifier {
+    //            if identifier == "toProfile" {
+    //                //
+    //                print("Cell was tapped on")
+    //                if let profileViewController = segue.destination as? ProfileViewController {
+    //                    let indexPath = tableView.indexPathForSelectedRow!
+    //                    let hardUsers = hardCodedUsers[indexPath.row]
+    //                }
+    //
+    //            }
+    //
+    //        }
+    //    }
+    //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toProfile" {
-                //
-                print("Cell was tapped on")
-                if let profileViewController = segue.destination as? ProfileViewController {
-                    let indexPath = tableView.indexPathForSelectedRow!
-                    let hardUsers = hardCodedUsers[indexPath.row]
-                }
+                let destination = segue.destination as? ProfileViewController
+                let indexPath = tableView.indexPathForSelectedRow
+                let hardUsers = hardCodedUsers[(indexPath?.row)!]
+                
                 
             }
-            
         }
     }
-    
-    
 }
