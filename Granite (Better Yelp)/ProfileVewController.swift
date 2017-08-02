@@ -16,13 +16,48 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBAction func logoutButton(_ sender: UIButton) {
+        logout()
+    }
     let storageRef = Storage.storage().reference()
     let databaseRef = Database.database().reference()
     
     @IBAction func saveChanges(_ sender: UIButton) {
+        saveChanges()
+        let imageName = NSUUID().uuidString
         
+        let storedImage = storageRef.child("profileImage").child(imageName)
         
+        if let uploadData = UIImagePNGRepresentation(self.profileImage.image!)
+        {
+        
+            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                print(error)
+                    return
+                
+                }
+                storedImage.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                    print(error)
+                        return
+                    
+                    }
+                    if let urlText = url?.absoluteString{
+                    self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref ) in
+                        if error != nil {
+                        print(error)
+                            return
+                        
+                        }
+                    })
+                    
+                    }
+                })
+            })
+        }
     }
     
     @IBAction func uploadImageButton(_ sender: UIButton) {
@@ -32,7 +67,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(picker, animated:  true, completion: nil)
         
+        // So what we are essentially doing let us take this to the basics first and foremost what is happening is that we are saying that when the user presses upon this uploadImageButton that we want the following code to be executed and what is going to happpen is that we want to give this let constant we are declaring calledpicker to essentially be its own delegate and what that means is that we are giving its own set of protocols or in other words we can think about this in the way that we are giving it its own set of blueprints as opposed to making it subjugated to the default blueprints or protocols it originally came from
         
+        // in the next line of code what is essentially happening is that well first we are making this picker of type uiimagepickercontroller and what that it essentially does is that it gives us all the properties of the uiimagepickercontroller within this picker controller and then from there we make it its own delegate and like we said that gives us our own set of blueprints and in the next line of code we are basically saying that we can allow editing meaning if they can modify the existing image
+        
+        // In the next line of code what is essentially happening is that we are giving a source for these photos to come from and for that source we are using the uiimagepickercontroller photo library meaning we have access to all the default photos
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func saveChanges() {
+        // Save changes to the modifications we made to the profile
         
     }
     
@@ -40,13 +88,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         var selectedImageFromPicker: UIImage?
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
-        selectedImageFromPicker = editedImage
+            selectedImageFromPicker = editedImage
         }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
-        selectedImageFromPicker = originalImage
+            selectedImageFromPicker = originalImage
         }
         if let selectedImage = selectedImageFromPicker {
-        profileImage.image = selectedImage
-        
+            profileImage.image = selectedImage
+            
         }
         dismiss(animated: true, completion: nil)
         
@@ -59,11 +107,58 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if  Auth.auth().currentUser?.uid == nil {
+            logout()
+        }
+        setupProfile()
+    }
+    
+    func setupProfile() {
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
+        let uid = Auth.auth().currentUser?.uid
+        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: AnyObject] {
+                self.usernameLabel.text = dict["username"] as! String
+                if let profileImageURL = dict["pic"] as? String {
+                    let url = URL(string: profileImageURL)
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            self.profileImage.image = UIImage(data:data!)
+                        }
+                    }).resume()
+                    
+                }
+                
+                
+            }
+        })
         
     }
-    //
-    //    profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-    //    profileImage.clipsToBounds = true
+    
+    // Essentially in the function above what we are doing is that we are setting up the profile details and how this occurs is that for the first lines of codes we are basically editing the shape of how the picture is displayed in the image view of the users library
+    // In the very first line of code we are saying in this if condition that if the user doesnt have a user identification we want to call the logout function which logs them out and this makes sense if the user doesnt have a user identification which is assgined to every user when they create their accont is that we want to log them out of the account this could serve as a security measure
+    // In the next several lines of code we are setting up a reference to the users identification and saying that with that snapshot of data we want to grab the username value of the user and set that equal to the username text label that is in their profile to display their username and cast it as a string so it is readble by other users
+    
+    // Next what is happening is that we are
+    
+    func logout() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let logInViewController = storyboard.instantiateViewController(withIdentifier: "Home")
+        let viewController = ViewController()
+        self.present(viewController, animated: true, completion: nil )
+        
+        // So this function is basically the function we call whenever the user would want to logout from their account
+        
+        // and how we went about executing this code is that we set this new let constant called storyboard and what this essentially does is that representing the main storyboard
+        // In the next line of code we are declaring a new let constant called logInViewController and what this let constant essentially does is that we take the storyboard constant that we declared in the previous line of code and what we do with that is that we are using this new let constant we are declaring to reprsent the transition that occurs when the the user wants to go from wherever they are in the main storyboard and go to the view controller they want to end up in by giving the view controller an identifier for where they want to end up in and depending on where you call this function that how the transition is going to occur for example we call this function in the log out button action because when we press the logout button we want to be transition to the view controller that we gave the identifier for
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

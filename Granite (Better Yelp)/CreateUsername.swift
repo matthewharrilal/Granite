@@ -164,22 +164,5 @@ class CreateUsername: UIViewController {
         
     }
     
-    
-    func savingUser() {
         
-        UserDefaults.standard.set(true, forKey: "isLoggedIn")
-        UserDefaults.standard.synchronize()
-        // Whenever we use user defaults we have to use this method or else the value will not get saved
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("user is automatically logged in from now on")
-        if let x = UserDefaults.standard.object(forKey: "isLoggedIn") {
-            emailTextField.text = x as! String
-            passwordTextField.text = x as! String
-        }
-    }
-    
-    
-    
 }

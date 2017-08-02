@@ -61,8 +61,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="newUser:" destination="tD3-Wo-HQQ" eventType="touchUpInside" id="bdX-rl-FaC"/>
-                                    <segue destination="ijx-IL-w2l" kind="show" id="q8q-fM-o91"/>
+                                    <segue destination="ijx-IL-w2l" kind="show" id="Vvv-x7-Ujb"/>
                                 </connections>
                             </button>
                         </subviews>

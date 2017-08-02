@@ -19,22 +19,23 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var newUserButton: UIButton!
-    
+       
     let databaseRef = Database.database().reference(fromURL: "https://granite3-dbd3a.firebaseio.com")
     //  Making our references at the start of the project makes our lives easier in terms of now we know what we already have and we just declare them here so we are not doing it while we go through the project
     
     
     @IBAction func logInButton(_ sender: UIButton) {
         
+        
         logIn() // Calling this function here because this our action function for the log in button function
-        if emailTextField.text == nil {
+        if emailTextField.text == "" {
         logInCredentialsIsEmpty()
         }
-        if passwordTextField.text == nil {
+        if passwordTextField.text == "" {
         logInCredentialsIsEmpty()
         }
         print("Why is it taking me back?")
+        
         
     }
     
@@ -43,6 +44,13 @@ class LogInViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "You are forgiven", style: .default, handler: nil)
         emptyLogInCredentials.addAction(cancelAction)
         self.present(emptyLogInCredentials, animated: true, completion: nil)
+    
+    }
+    func emailIsAlreadyRegistered() {
+        let registeredEmail = UIAlertController(title: "Email is already registered with an account", message: "Try using another email adress to log in", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Allow me to try again", style: .default, handler: nil)
+        registeredEmail.addAction(cancelAction)
+        self.present(registeredEmail, animated: true, completion: nil)
     
     }
     
