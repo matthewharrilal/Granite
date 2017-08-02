@@ -73,6 +73,7 @@ class CreateUsername: UIViewController {
             textFieldIsEmpty()
             
         }
+    
         // Why is this function being called even if the text matches the exact same syntax as the one we want we have to research how to dismiss these notifications later
         
         // The reason their is only one alert kind for both actions is becuase i dont think you can asssign two alerts to one button
