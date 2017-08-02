@@ -13,6 +13,7 @@
 		1C4D2CFF1F31189500C6FC4B /* laura-aziz-133168.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */; };
 		1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */; };
 		1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */; };
+		1C4D2D051F32352200C6FC4B /* redd-angelo-113258.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */; };
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
 		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
@@ -36,6 +37,7 @@
 		1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "laura-aziz-133168.jpg"; sourceTree = "<group>"; };
 		1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mike-erskine-144525.jpg"; sourceTree = "<group>"; };
 		1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileThatUsersSee.swift; sourceTree = "<group>"; };
+		1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "redd-angelo-113258.jpg"; sourceTree = "<group>"; };
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyPeople.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				1C4D2CFE1F31189500C6FC4B /* laura-aziz-133168.jpg */,
 				1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */,
+				1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */,
 			);
 			name = "Picture Files";
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				1C4D2CFD1F310DE300C6FC4B /* GoogleService-Info.plist in Resources */,
 				1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */,
 				1CEB0EA91F2B9F8D00386BD3 /* LogInStoryBoard.storyboard in Resources */,
+				1C4D2D051F32352200C6FC4B /* redd-angelo-113258.jpg in Resources */,
 				1C4D2CFF1F31189500C6FC4B /* laura-aziz-133168.jpg in Resources */,
 				1CD906F61F24067D0085E102 /* Main.storyboard in Resources */,
 			);

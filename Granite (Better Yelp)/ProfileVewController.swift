@@ -13,10 +13,14 @@ import FirebaseAuthUI
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
+import CoreData
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var hardCodedUsers = [HardCodedUsers]()
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
+    
+    @IBOutlet weak var usernameTextField: UITextField!
     
     @IBAction func logoutButton(_ sender: UIButton) {
         logout()
@@ -26,38 +30,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func saveChanges(_ sender: UIButton) {
         saveChanges()
-        let imageName = NSUUID().uuidString
-        
-        let storedImage = storageRef.child("profileImage").child(imageName)
-        
-        if let uploadData = UIImagePNGRepresentation(self.profileImage.image!)
-        {
-        
-            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                print(error)
-                    return
-                
-                }
-                storedImage.downloadURL(completion: { (url, error) in
-                    if error != nil {
-                    print(error)
-                        return
-                    
-                    }
-                    if let urlText = url?.absoluteString{
-                    self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref ) in
-                        if error != nil {
-                        print(error)
-                            return
-                        
-                        }
-                    })
-                    
-                    }
-                })
-            })
-        }
+        profileUsernames()
     }
     
     @IBAction func uploadImageButton(_ sender: UIButton) {
@@ -76,11 +49,52 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        
         dismiss(animated: true, completion: nil)
     }
     
     func saveChanges() {
         // Save changes to the modifications we made to the profile
+        
+        
+        let imageName = NSUUID().uuidString
+        
+        let storedImage = storageRef.child("profileImage").child(imageName)
+        
+        if let uploadData = UIImagePNGRepresentation(self.profileImage.image!)
+        {
+            
+            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    print(error)
+                    return
+                    
+                }
+                storedImage.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                        
+                    }
+                    if let urlText = url?.absoluteString{
+                        self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref ) in
+                            if error != nil {
+                                print(error)
+                                return
+                                
+                            }
+                        })
+                        
+                    }
+                })
+            })
+        }
+        print("The user's profile image has been saved to their profile")
+        
+        // Their image is succesfully chnaging but what is occuring is that the username is all under one users name as well as the image doesnt actually change it justs does in firebase but since they are all under one username what is occuring is that the photos are only saving within that users values for pic
+        
+        // So what we have to do is first fix the issue that when we press the save changes button the username saves for all the users but what we want is that when we press the save change button that it only saves for the individual user
         
     }
     
@@ -111,6 +125,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             logout()
         }
         setupProfile()
+        profileUsernames()
     }
     
     func setupProfile() {
@@ -119,7 +134,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let uid = Auth.auth().currentUser?.uid
         databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: AnyObject] {
-                self.usernameLabel.text = dict["username"] as! String
+              //  self.usernameTextField.text = dict["username"] as! String
                 if let profileImageURL = dict["pic"] as? String {
                     let url = URL(string: profileImageURL)
                     URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
@@ -137,6 +152,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
             }
         })
+        
+    }
+    
+    func profileUsernames() {
+        let uid = Auth.auth().currentUser?.uid
+        // This databaseRef just holds the reference to our database
+        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (usernameSnapshot) in
+            if let dictionary = usernameSnapshot.value as? [String: AnyObject] {
+                for _ in self.hardCodedUsers {
+                    self.usernameTextField.text = dictionary["username"] as! String
+                }
+                
+                
+            }
+        })
+        
+        
         
     }
     

@@ -64,7 +64,7 @@ class CreateUsername: UIViewController {
         //            textFieldIsEmpty()
         //        }
         
-        if agreementTextField.text == "Yes"  {
+        if agreementTextField.text == "Yes" || agreementTextField.text == "yes"   {
             
             
         }
