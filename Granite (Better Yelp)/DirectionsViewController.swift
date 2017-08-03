@@ -13,6 +13,7 @@ import GooglePlaces
 import GoogleMapsDirections
 import Alamofire
 import SwiftyJSON
+import MapKit
 
 class DirectionsViewController: UIViewController {
     //40.606035, -73.767939
@@ -50,8 +51,6 @@ class DirectionsViewController: UIViewController {
         
         
         let apiKey = "AIzaSyAY5GU2CcLfugDcBvDPPYNNvTO3a9sWoyA"
-        
+      
     }
-    
-    
-}
+    }

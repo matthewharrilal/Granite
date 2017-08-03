@@ -14,19 +14,29 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 import CoreData
+import Alamofire
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var hardCodedUsers = [HardCodedUsers]()
     @IBOutlet weak var profileImage: UIImageView!
+    var username: String?
+    var users = [HardCodedUsers]()
     
-    @IBOutlet weak var usernameTextField: UITextField!
     
+    
+    @IBOutlet weak var usernameLabel: UILabel!{
+    UIStoryboardSegue.init(identifier: "toProfile", source: ListNearbyPeople, destination: ProfileViewController)
+    let sourceViewController =
+    
+    }
+
+   
     @IBAction func logoutButton(_ sender: UIButton) {
         logout()
     }
     let storageRef = Storage.storage().reference()
-    let databaseRef = Database.database().reference()
+    var databaseRef = Database.database().reference()
     
     @IBAction func saveChanges(_ sender: UIButton) {
         saveChanges()
@@ -54,7 +64,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
     
-    func saveChanges() {
+      func saveChanges() {
         // Save changes to the modifications we made to the profile
         
         
@@ -125,8 +135,37 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             logout()
         }
         setupProfile()
-        profileUsernames()
+      
+      
+    
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Now we know that we call the view will appear function when we want things to be loaded more than once as opposed to where view did load are thingd that only are called once and we know we want things to be called more than once becauase everytime the user taps on a table view cell we want the thing to be ccalled more than once that it displays a username that coressponds to the user rather than the same one for each user
+        //viewwillappear()
+    
+        usernameLabel.text = username
+        
+        
+        
+                // So on the bright side we have enabled the ability to pass the data from the table view cell onto the username label in the profile view controller yet we have no way to be able to assign the label to the corresponding users
+    }
+    
+//    func viewwillappear() {
+//     self.username = usernameLabel.text
+//    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//         self.usernameLabel.text = username
+//    }
+    
+   // So essentially what we are trying to do is that we are trying to display the users username when we tap on the corresponding table view cell so what we have to do is in our prepare for segue function in our table view controller and the reason we dont have to use a snapshot is because we do not want to call the data from firebase rather we want to get the data from the table view cell and we know when we are passing data to two view controllers we want to use the prepare for segue function
+        
+        
+    
     
     func setupProfile() {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
@@ -134,7 +173,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let uid = Auth.auth().currentUser?.uid
         databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: AnyObject] {
-              //  self.usernameTextField.text = dict["username"] as! String
+              //self.usernameTextField.text = dict["username"] as! String
                 if let profileImageURL = dict["pic"] as? String {
                     let url = URL(string: profileImageURL)
                     URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
@@ -156,18 +195,35 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func profileUsernames() {
-        let uid = Auth.auth().currentUser?.uid
-        // This databaseRef just holds the reference to our database
-        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (usernameSnapshot) in
-            if let dictionary = usernameSnapshot.value as? [String: AnyObject] {
-                for _ in self.hardCodedUsers {
-                    self.usernameTextField.text = dictionary["username"] as! String
-                }
-                
-                
-            }
-        })
-        
+//        let uid = Auth.auth().currentUser?.uid
+//        // This databaseRef just holds the reference to our database
+//        databaseRef.child("users").child(uid!).observeSingleEvent(of: .value, with: { (usernameSnapshot) in
+//            if let dictionary = usernameSnapshot.value as? [String: AnyObject] {
+//                //self.usernameTextField.text = dictionary["username"] as! String
+//                for _ in self.hardCodedUsers {
+//                    let url = URL(string: self.usernameTextField.text!)
+//                    URLSession.shared.dataTask(with: url!, completionHandler: {(text, response, error) in
+//                        if error != nil {
+//                        print(error)
+//                            return
+//                        }
+//                        DispatchQueue.main.async {
+//                     //       self.usernameTextField.text = UITextField(text: usernameTextField.text)
+//                        }
+//                    }).resume()
+//                                    }
+//                
+//                
+////                for _ in self.hardCodedUsers {
+////                    self.usernameTextField.text = dictionary["username"] as! String
+////                    
+////                    print("The user's username has been saved")
+////                }
+//                
+//                
+//            }
+//        })
+//        
         
         
     }

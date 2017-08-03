@@ -33,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh5-Yg-6ku">
                                 <rect key="frame" x="139" y="367" width="96" height="30"/>
@@ -46,8 +46,12 @@
                                     <segue destination="1MS-aE-oiQ" kind="show" id="kC3-vc-nSM"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redd-angelo-113258.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QMR-em-EPO">
+                                <rect key="frame" x="58" y="72" width="258" height="139"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fJ-i5-HuC">
-                                <rect key="frame" x="139" y="418" width="96" height="35"/>
+                                <rect key="frame" x="139" y="431" width="96" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
@@ -58,16 +62,15 @@
                                     <segue destination="ijx-IL-w2l" kind="show" id="Vvv-x7-Ujb"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redd-angelo-113258.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QMR-em-EPO">
-                                <rect key="frame" x="58" y="72" width="258" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.79607843137254897" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="nOY-L2-m9r"/>
                     <connections>
                         <outlet property="emailTextField" destination="Tex-Jl-gII" id="Vhm-my-Uym"/>
+                        <outlet property="imageView" destination="QMR-em-EPO" id="f7C-6e-6oE"/>
+                        <outlet property="logInButton" destination="Bh5-Yg-6ku" id="2ry-OB-iNr"/>
+                        <outlet property="newUserButton" destination="5fJ-i5-HuC" id="Bxl-dG-fUn"/>
                         <outlet property="passwordTextField" destination="lz8-K5-6G1" id="RcA-QG-YWZ"/>
                     </connections>
                 </viewController>
@@ -121,7 +124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-1v-04f">
                                 <rect key="frame" x="81" y="349" width="213" height="43"/>
@@ -195,6 +198,6 @@
         <image name="redd-angelo-113258.jpg" width="2994" height="1684"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kC3-vc-nSM"/>
+        <segue reference="uLi-yU-mO0"/>
     </inferredMetricsTieBreakers>
 </document>

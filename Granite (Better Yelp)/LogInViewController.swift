@@ -17,6 +17,9 @@ import FirebaseStorage
 class LogInViewController: UIViewController {
     
     
+    @IBOutlet weak var newUserButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
        
@@ -28,13 +31,22 @@ class LogInViewController: UIViewController {
         
         
         logIn() // Calling this function here because this our action function for the log in button function
-        if emailTextField.text == "" {
+        if emailTextField.text != "" {
+        
+        }else{
         logInCredentialsIsEmpty()
         }
-        if passwordTextField.text == "" {
+        if passwordTextField.text != "" {
+        
+        }else{
+        
         logInCredentialsIsEmpty()
         }
-        print("Why is it taking me back?")
+        print("It is not taking me back anymore")
+        
+        // So we have to examine the issue that it is only taking us back with recurring users
+        
+        // So we have now confirmed that there is the glitch in the screens of the log in view controller when we try logging in with an existing user'
         
         
     }
@@ -65,6 +77,12 @@ class LogInViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        // Adding programmatic constraints to our log in view controller
+        
+       
+//        newUserButton.translatesAutoresizingMaskIntoConstraints = false
+//        logInButton.translatesAutoresizingMaskIntoConstraints = false
     
         
     }

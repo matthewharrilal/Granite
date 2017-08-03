@@ -14,6 +14,7 @@
 		1C4D2D011F3118AD00C6FC4B /* mike-erskine-144525.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */; };
 		1C4D2D031F31FB7700C6FC4B /* ProfileThatUsersSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */; };
 		1C4D2D051F32352200C6FC4B /* redd-angelo-113258.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */; };
+		1C4D2D081F33A55000C6FC4B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D2D071F33A55000C6FC4B /* TableViewCell.swift */; };
 		1C9CED1B1F266FF9002C4BCA /* ListNearbyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */; };
 		1C9CED1D1F2677E8002C4BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */; };
 		1C9CED2F1F279D68002C4BCA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */; };
@@ -38,6 +39,7 @@
 		1C4D2D001F3118AD00C6FC4B /* mike-erskine-144525.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mike-erskine-144525.jpg"; sourceTree = "<group>"; };
 		1C4D2D021F31FB7700C6FC4B /* ProfileThatUsersSee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileThatUsersSee.swift; sourceTree = "<group>"; };
 		1C4D2D041F32352200C6FC4B /* redd-angelo-113258.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "redd-angelo-113258.jpg"; sourceTree = "<group>"; };
+		1C4D2D071F33A55000C6FC4B /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		1C9CED1A1F266FF9002C4BCA /* ListNearbyPeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNearbyPeople.swift; sourceTree = "<group>"; };
 		1C9CED1C1F2677E8002C4BCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1C9CED2E1F279D68002C4BCA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C4D2D061F33A53600C6FC4B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C4D2D071F33A55000C6FC4B /* TableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1C9CED2B1F2778BA002C4BCA /* Picture Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		1CD906E41F24067D0085E102 = {
 			isa = PBXGroup;
 			children = (
+				1C4D2D061F33A53600C6FC4B /* Views */,
 				1CEB0EAB1F2BA1C700386BD3 /* Info files */,
 				1CEB0EAA1F2BA1A200386BD3 /* Storyboards */,
 				1CCA45CA1F27DBDB005C062C /* Service */,
@@ -303,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4D2D081F33A55000C6FC4B /* TableViewCell.swift in Sources */,
 				1CEB0EAF1F2BD95A00386BD3 /* CreateUsername.swift in Sources */,
 				1C4D2CF91F310C3A00C6FC4B /* HardCodedUsers.swift in Sources */,
 				1CD906F31F24067D0085E102 /* ViewController.swift in Sources */,
