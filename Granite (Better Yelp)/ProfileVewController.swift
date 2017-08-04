@@ -131,38 +131,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             logout()
         }
         setupProfile()
-      usernameLabel.text = self.username
+       usernameLabel.text = self.username
       
     
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Now we know that we call the view will appear function when we want things to be loaded more than once as opposed to where view did load are thingd that only are called once and we know we want things to be called more than once becauase everytime the user taps on a table view cell we want the thing to be ccalled more than once that it displays a username that coressponds to the user rather than the same one for each user
-        //viewwillappear()
-    
-        //usernameLabel.text = username
-        
-        
-        
-                // So on the bright side we have enabled the ability to pass the data from the table view cell onto the username label in the profile view controller yet we have no way to be able to assign the label to the corresponding users
-        
-    // So essentially what we have to do is since our users our stored in an array we have to somehow access these elments and pass them to the username label 
-    }
-    
-//    func viewwillappear() {
-//     self.username = usernameLabel.text
-//    }
-    
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
-//         self.usernameLabel.text = username
+//        usernameLabel.text = self.username
+//        
 //    }
-    
-   // So essentially what we are trying to do is that we are trying to display the users username when we tap on the corresponding table view cell so what we have to do is in our prepare for segue function in our table view controller and the reason we dont have to use a snapshot is because we do not want to call the data from firebase rather we want to get the data from the table view cell and we know when we are passing data to two view controllers we want to use the prepare for segue function
-        
-        
+//        
     
     
     func setupProfile() {
