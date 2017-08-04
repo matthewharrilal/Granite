@@ -23,14 +23,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var username: String?
     var users = [HardCodedUsers]()
     
+    @IBOutlet weak var usernameLabel: UILabel!
     
-    
-    @IBOutlet weak var usernameLabel: UILabel!{
-    UIStoryboardSegue.init(identifier: "toProfile", source: ListNearbyPeople, destination: ProfileViewController)
-    let sourceViewController =
-    
-    }
 
+   
    
     @IBAction func logoutButton(_ sender: UIButton) {
         logout()
@@ -135,7 +131,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             logout()
         }
         setupProfile()
-      
+      usernameLabel.text = self.username
       
     
     }
@@ -146,11 +142,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Now we know that we call the view will appear function when we want things to be loaded more than once as opposed to where view did load are thingd that only are called once and we know we want things to be called more than once becauase everytime the user taps on a table view cell we want the thing to be ccalled more than once that it displays a username that coressponds to the user rather than the same one for each user
         //viewwillappear()
     
-        usernameLabel.text = username
+        //usernameLabel.text = username
         
         
         
                 // So on the bright side we have enabled the ability to pass the data from the table view cell onto the username label in the profile view controller yet we have no way to be able to assign the label to the corresponding users
+        
+    // So essentially what we have to do is since our users our stored in an array we have to somehow access these elments and pass them to the username label 
     }
     
 //    func viewwillappear() {

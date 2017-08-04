@@ -22,7 +22,7 @@ class ListNearbyPeople: UITableViewController {
     let cellID = "nearbyPeopleCell"
     var refHandle: UInt!
     var username: String?
-   
+    
     //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
     
     override func viewDidLoad() {
@@ -52,6 +52,14 @@ class ListNearbyPeople: UITableViewController {
             }
         })
         
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        username = currentCell.textLabel?.text
+        performSegue(withIdentifier: "toProfile", sender: self)
         
     }
     
@@ -95,35 +103,40 @@ class ListNearbyPeople: UITableViewController {
     //    }
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        
         if let identifier = segue.identifier {
-            if identifier == "toProfile" {
-            let profileViewController = segue.destination as? ProfileViewController
-                //  So essentially we know that the username we gave declared earlier now contains the usernames of the users from firebase but yet we have to pass that on to the next view controller thats why we are in this function therefore we have to finda way to pass that data over
-             //   print(username)
-                print(profileViewController?.username)
-                // So when we print this we are getting nil meaning nothing was assigned to it yet therefore we want to assign the cells usernames which we are doing in the lines of codes below
-               // And why would weassign the label text to username that is essentially hard coding the label text for each cell that we tap on
-            profileViewController?.username = username
-
-                
-                //profileViewController?.usernameLabel.text = username
-                // we can not do this line of code above because we know that if we store the usernames within this username label.text variable only one username will get stored and thats what causes it to appear on every username when each cell is tapped
-                
+                        if identifier == "toProfile" {
+                        let profileViewController = segue.destination as? ProfileViewController
+                            //  So essentially we know that the username we gave declared earlier now contains the usernames of the users from firebase but yet we have to pass that on to the next view controller thats why we are in this function therefore we have to finda way to pass that data over
+                         //   print(username)
+                            print(profileViewController?.username)
+                            
+                            // So when we print this we are getting nil meaning nothing was assigned to it yet therefore we want to assign the cells usernames which we are doing in the lines of codes below
+                           // And why would weassign the label text to username that is essentially hard coding the label text for each cell that we tap on
+                        profileViewController?.username = username
             
+            
+                            //profileViewController?.usernameLabel.text = username
+                            // we can not do this line of code above because we know that if we store the usernames within this username label.text variable only one username will get stored and thats what causes it to appear on every username when each cell is tapped
+            
+            
+                        }
+            
+                    }
+         
+        
+            
+        
+        
+            if let identifier = segue.identifier {
+                if identifier == "toProfile" {
+                    let destination = segue.destination as? ProfileViewController
+                    let indexPath = tableView.indexPathForSelectedRow
+                    let hardUsers = hardCodedUsers[(indexPath?.row)!]
+                    
+                    
+                }
             }
-        
         }
-        
-        
-        if let identifier = segue.identifier {
-            if identifier == "toProfile" {
-                let destination = segue.destination as? ProfileViewController
-                let indexPath = tableView.indexPathForSelectedRow
-                let hardUsers = hardCodedUsers[(indexPath?.row)!]
-                
-                
-            }
-        }
-    }
+    
 }
