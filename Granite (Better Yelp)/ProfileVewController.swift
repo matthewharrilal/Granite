@@ -127,8 +127,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if  Auth.auth().currentUser?.uid == nil {
-            logout()
+        if  Auth.auth().currentUser?.uid != nil {
+            
+        } else{
+        logout()
+        
         }
         setupProfile()
        usernameLabel.text = self.username

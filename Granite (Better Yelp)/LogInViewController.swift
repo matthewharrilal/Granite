@@ -12,6 +12,9 @@ import Firebase
 import FirebaseAuthUI
 import FirebaseAuth
 import FirebaseStorage
+import FirebaseDatabase
+import Alamofire
+
 
 //var isLogIn: Bool = true
 class LogInViewController: UIViewController {
@@ -31,6 +34,19 @@ class LogInViewController: UIViewController {
         
         
         logIn() // Calling this function here because this our action function for the log in button function
+//        if Auth.auth().currentUser?.uid != "" {
+//       
+//        }else {
+//        
+//         self.dismiss(animated: true, completion: nil)
+//        print("This is a new user and it is not taking me back still")
+//            // If we put a breakpoint here it is still not getting hit that means that we have to approach this in a different way
+//        }
+//        
+        logOutNonExistingUsers()
+        
+        
+        
         if emailTextField.text != "" {
         
         }else{
@@ -42,16 +58,31 @@ class LogInViewController: UIViewController {
         
         logInCredentialsIsEmpty()
         }
-        print("It is not taking me back anymore")
+       // print("It is not taking me back anymore")
         
         // So we have to examine the issue that it is only taking us back with recurring users
         
         // So we have now confirmed that there is the glitch in the screens of the log in view controller when we try logging in with an existing user'
-        
-        
     }
     
-    func logInCredentialsIsEmpty() {
+    func logOutNonExistingUsers() {
+        
+        guard let email = emailTextField.text
+            else{return}
+        guard let password = passwordTextField.text
+            else {return}
+        
+        
+    Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        if error != nil {
+        self.dismiss(animated: true, completion: nil)
+        
+        }
+        }
+    
+    }
+    
+        func logInCredentialsIsEmpty() {
         let emptyLogInCredentials = UIAlertController(title: "Missing Log In Input", message: "Some of your log in credentials seem to be empty please double check the required fields", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "You are forgiven", style: .default, handler: nil)
         emptyLogInCredentials.addAction(cancelAction)
@@ -84,7 +115,7 @@ class LogInViewController: UIViewController {
 //        newUserButton.translatesAutoresizingMaskIntoConstraints = false
 //        logInButton.translatesAutoresizingMaskIntoConstraints = false
     
-        
+        logIn()
     }
     func dismissKeyboard() {
         view.endEditing(true)
@@ -102,11 +133,27 @@ class LogInViewController: UIViewController {
         }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
-                print(error)
-                return
+                print("There is obviously a login flow issue")
+                print(user)
+                print(error?.localizedDescription)
+                print("It is taking me back for a reason")
+                // return
+                // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
                 
+            } else {
+            print("Is this hitting correctly?")
+                print("Error is occuring and what that error is: \(error?.localizedDescription)")
+                // This else statement is getting hit when you sign in with user credentials that already hit
+                // So now that we know when we use the log in screen for its intended functionality only this code will be hit
+                // Maybe use an if statement to keep them logged in 
+                
+                // So in general this doesnt get hit unless you are signing it with a user that already eixsts
+                // With users that exist this is not hitting
+            
             }
-            self.dismiss(animated: true, completion: nil)
+           // self.dismiss(animated: true, completion: nil)
+            
+            // this was the cause of not being able to log in we were dismissing the view therefore every time this function is called which it is being called when the user taps on the log out button it is automatically dismissing the view but the question still arises why  even though this was still happening it wouldnt dismiss the view when users werent signed in its because in order for this to be called besides calling this function somewhere else maybe we can use this to our advantage
         }
     }
     
@@ -129,5 +176,6 @@ class LogInViewController: UIViewController {
     
     
 }
+
 
 

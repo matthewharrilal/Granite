@@ -57,10 +57,12 @@ class ListNearbyPeople: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewCell
         username = currentCell.textLabel?.text
         username = hardCodedUsers[indexPath.row].username
         performSegue(withIdentifier: "toProfile", sender: self)
+        
+        // So essentially what made our code work was that because as oppose to the cell for row at function we are essentially setting the data here as oppose to in the cell for row we are only displaying the username of the user in the corresponding cell in the row and in addtion to that in the prepare for segue as we know we use that function when we want to pass data from one view controller to another therefore in combination of those two previous functions the prepare for segue function and the cell for row at those two together essentially show us the username of the user in the cell and pass the data from one view controller to another but that does not neccesarily mean that they set the data therefore with this did select row is what it essentially does is when we tap on the cell that passes the data from one view controller to another we have to set the data in the next view controller so by this works in our benefit because we want to pass the usernames of the users and set them in the next view controller as their username in the username label
         
     }
     
