@@ -139,13 +139,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        usernameLabel.text = self.username
-//        
-//    }
-//        
-    
     
     func setupProfile() {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2

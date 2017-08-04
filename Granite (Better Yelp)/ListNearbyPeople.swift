@@ -81,7 +81,7 @@ class ListNearbyPeople: UITableViewController {
         // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyPeopleCell", for: indexPath)
         cell.textLabel?.text = hardCodedUsers[indexPath.row].username
-   //     username = hardCodedUsers[indexPath.row].username
+   //   username = hardCodedUsers[indexPath.row].username
         
         // So essentially what we are doing here is that we are is assigning the value of the cells that display the usernames of the other users to the variable username we declared at the top of the class and why we are doing this is becauase we want the username to be displaying the usernames of the users from firebase but still we have to pass that data over to the profile view controller and we know to do this we have to use the prepare for segue function
         // Set cell contents

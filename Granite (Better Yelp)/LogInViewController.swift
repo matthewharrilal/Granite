@@ -56,6 +56,7 @@ class LogInViewController: UIViewController {
         
         }else{
         
+
         logInCredentialsIsEmpty()
         }
        // print("It is not taking me back anymore")
@@ -64,8 +65,7 @@ class LogInViewController: UIViewController {
         
         // So we have now confirmed that there is the glitch in the screens of the log in view controller when we try logging in with an existing user'
     }
-    
-    func logOutNonExistingUsers() {
+        func logOutNonExistingUsers() {
         
         guard let email = emailTextField.text
             else{return}
@@ -75,11 +75,26 @@ class LogInViewController: UIViewController {
         
     Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
         if error != nil {
-        self.dismiss(animated: true, completion: nil)
+            // self.alertNonExistingUsers()
+            self.dismiss(animated: true, completion: nil)
+            print("User shall not enter")
+           // self.alertNonExistingUsers()
+      
+        } else{
+        self.alertNonExistingUsers()
+            // This will never be hit becausae the if condition is always satisfied
+            
+            // Theory confirmed the user will not be allowed acess unless they have a real account that has been authenticated
         
         }
         }
     
+    }
+    func alertNonExistingUsers() {
+        let alertingNonExistingUsers = UIAlertController(title: "This account does not exist", message: "Try again with a different account or create an account", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertingNonExistingUsers.addAction(cancelAction)
+        self.present(alertingNonExistingUsers, animated:  true, completion:  nil)
     }
     
         func logInCredentialsIsEmpty() {
