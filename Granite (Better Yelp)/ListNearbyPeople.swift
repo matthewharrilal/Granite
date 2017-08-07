@@ -57,7 +57,7 @@ class ListNearbyPeople: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewCell
+        let currentCell = tableView.cellForRow(at: indexPath)! as! UITableViewCell
         username = currentCell.textLabel?.text
         username = hardCodedUsers[indexPath.row].username
         performSegue(withIdentifier: "toProfile", sender: self)

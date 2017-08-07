@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="59V-aL-SQU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="59V-aL-SQU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Log In View Controller-->
+        <!--Granite-->
         <scene sceneID="tC2-Zs-CZk">
             <objects>
                 <viewController id="tD3-Wo-HQQ" customClass="LogInViewController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,18 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-Jl-gII">
-                                <rect key="frame" x="0.0" y="236" width="375" height="30"/>
+                                <rect key="frame" x="16" y="236" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-K5-6G1">
-                                <rect key="frame" x="0.0" y="286" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh5-Yg-6ku">
                                 <rect key="frame" x="139" y="367" width="96" height="30"/>
@@ -43,7 +36,6 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="logInButton:" destination="tD3-Wo-HQQ" eventType="touchUpInside" id="m4Y-kp-yX2"/>
-                                    <segue destination="1MS-aE-oiQ" kind="show" id="kC3-vc-nSM"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redd-angelo-113258.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QMR-em-EPO">
@@ -62,21 +54,29 @@
                                     <segue destination="ijx-IL-w2l" kind="show" id="Vvv-x7-Ujb"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-K5-6G1">
+                                <rect key="frame" x="16" y="286" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.79607843137254897" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nOY-L2-m9r"/>
+                    <navigationItem key="navigationItem" title="Granite" id="nOY-L2-m9r"/>
                     <connections>
                         <outlet property="emailTextField" destination="Tex-Jl-gII" id="Vhm-my-Uym"/>
                         <outlet property="imageView" destination="QMR-em-EPO" id="f7C-6e-6oE"/>
                         <outlet property="logInButton" destination="Bh5-Yg-6ku" id="2ry-OB-iNr"/>
                         <outlet property="newUserButton" destination="5fJ-i5-HuC" id="Bxl-dG-fUn"/>
                         <outlet property="passwordTextField" destination="lz8-K5-6G1" id="RcA-QG-YWZ"/>
+                        <segue destination="1MS-aE-oiQ" kind="show" identifier="toHome" id="bWY-My-Rl9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fT9-o5-lFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="161.46926536731635"/>
+            <point key="canvasLocation" x="2170" y="162"/>
         </scene>
         <!--MainStoryBoard-->
         <scene sceneID="vzK-Dm-0Q3">
@@ -84,7 +84,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MainStoryBoard" id="1MS-aE-oiQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zg-qM-W3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3346" y="162"/>
+            <point key="canvasLocation" x="3546" y="162"/>
         </scene>
         <!--CreateUsername-->
         <scene sceneID="wZr-xK-akW">
@@ -135,7 +135,6 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccount:" destination="ijx-IL-w2l" eventType="touchUpInside" id="aze-Kv-As5"/>
-                                    <segue destination="1MS-aE-oiQ" kind="show" id="uLi-yU-mO0"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-ay-Htc">
@@ -169,18 +168,19 @@
                         <outlet property="fullName" destination="Dbg-YW-Etb" id="aeZ-cv-7gI"/>
                         <outlet property="passwordTextField" destination="TZg-2U-8bQ" id="iL2-za-dAa"/>
                         <outlet property="usernameTextField" destination="KfV-ay-Htc" id="K4m-TE-hay"/>
+                        <segue destination="1MS-aE-oiQ" kind="show" identifier="fromCreateUsername" id="sHv-Oq-XMD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kn3-Ul-HC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2744.8000000000002" y="162.3688155922039"/>
+            <point key="canvasLocation" x="2945" y="162"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="pTV-6b-Ycn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59V-aL-SQU" customClass="MainNavigationController" customModule="Granite__Better_Yelp_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8vb-PG-oOQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8vb-PG-oOQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -198,6 +198,6 @@
         <image name="redd-angelo-113258.jpg" width="2994" height="1684"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uLi-yU-mO0"/>
+        <segue reference="sHv-Oq-XMD"/>
     </inferredMetricsTieBreakers>
 </document>
