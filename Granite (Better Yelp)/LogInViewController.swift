@@ -15,6 +15,11 @@ import FirebaseStorage
 import FirebaseDatabase
 import Alamofire
 
+protocol LogInViewControllerDelegate: class {
+func finishLoggingIn()
+
+}
+
 
 class LogInViewController: UIViewController {
     var error = Error.self
@@ -48,6 +53,7 @@ class LogInViewController: UIViewController {
             // logInCredentialsIsEmpty()
         }
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            // if there is an error meaning that it will be the opposite of nil
             if error != nil {
                 self.logInCredentialsIsEmpty(error: error!)
                 print("There is obviously a login flow issue")
@@ -58,13 +64,30 @@ class LogInViewController: UIViewController {
                 // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
                 
             } else {
-                print("Is this hitting correctly?")
+                print("User is just signed in and their user defaults has not been set yet")
+                UserService.show(forUID: (user?.uid)!, completion: { (user) in
+                    if let user = user {
+                    HardCodedUsers.setCurrent(user, writeToUserDefaults: true)
+                    self.finishLoggingIn()
+                    print("User defaults has now been set")
+                    
+                    } else {
+                    print("Error: User does not exist")
+                        return
+                    
+                    }
+                })
                 self.performSegue(withIdentifier: "toHome", sender: nil)
                 
             }
         }
-       // So essentially what we are doing here is that we are
+       // So essentially what we are doing here is that we are doing here is that if the error is not equal to nil meaning that there is an error they will be me with the proper log in alert based on the localized description error and where as in the else statement if everything basically checks out and everything is verified they can be on their merry way
+        
+        // The reason we changed the segue from the button to the next view controller to the home to the next view controller is  becuase if we left it that way we would have been stuck with a button that just segues even if the alerts are present and we see that we do not want that if their is an error we want our users to be presented with an error 
     
+    }
+    func finishLoggingIn() {
+        print("User is done logging in from the log in view controller")
     }
     
     func logInCredentialsIsEmpty(error: Error) {

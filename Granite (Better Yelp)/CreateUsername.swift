@@ -58,11 +58,17 @@ class CreateUsername: UIViewController {
             textFieldIsEmpty()
             
         }
-        //        if agreementTextField.text != nil {
-        //
-        //        } else {
-        //            textFieldIsEmpty()
-        //        }
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil {
+            self.signUpErrors(error: error!, controller: self)
+                print("An error has occured pertaining to the user signing up")
+            } else {
+            self.performSegue(withIdentifier: "fromCreateUsername", sender: self)
+            
+            }
+        }
+        
+        
         
         if agreementTextField.text == "Yes" || agreementTextField.text == "yes"   {
             
@@ -103,16 +109,24 @@ class CreateUsername: UIViewController {
         self.present(ifTextFieldIsEmpty, animated: true, completion: nil)
     }
     
-    func ageConsentAgreement() {
-        let usersAgreement = UIAlertController(title:"Warning You Probably Spelled Something Wrong", message: "The reason you are getting this messgae is probaly becuase you did not make sure that your response was case sensitive make sure it is spelled the exact same way as the placeholder text", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Agree To These Terms", style:
-            .default, handler: nil )
-        usersAgreement.addAction(cancelAction)
-        self.present(usersAgreement, animated: true, completion: nil)
+    func signUpErrors(error: Error, controller: UIViewController) {
+        switch (error.localizedDescription) {
+//        case "The email address is badly formatted.":
+//            let invalidEmailAlert = UIAlertController(title: "This email address is badly formatted", message: "Please try again with a different and correctly formatted email address", preferredStyle: .alert)
+//            let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+//            invalidEmailAlert.addAction(cancelAction)
+//            controller.present(invalidEmailAlert, animated: true, completion: nil)
+//            break;
+        default:
+            let signUpErrorAlert = UIAlertController(title: "Trouble Signing You Up", message: "Please try creating an account at a later and more convient time", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            signUpErrorAlert.addAction(cancelAction)
+            controller.present(signUpErrorAlert, animated: true, completion:  nil)
+            
         
-        
-    }
+        }
     
+    }
     
     func signUp() {
         guard let fullName = fullName.text

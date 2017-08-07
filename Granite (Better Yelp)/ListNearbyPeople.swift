@@ -22,6 +22,7 @@ class ListNearbyPeople: UITableViewController {
     let cellID = "nearbyPeopleCell"
     var refHandle: UInt!
     var username: String?
+
     
     //let database = Database.database().reference().dictionaryWithValues(forKeys: String([users]))
     

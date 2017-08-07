@@ -30,6 +30,9 @@ class DirectionsViewController: UIViewController {
         let markerPinOnTheMap = GMSMarker(position: currentLocation )
         markerPinOnTheMap.title = "Home"
         markerPinOnTheMap.map = mapView
+        //markerPinOnTheMap.icon
+        
+        
         // markerPinOnTheMap.icon
         // we can use this later this is for customization
         

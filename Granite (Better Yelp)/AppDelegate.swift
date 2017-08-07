@@ -33,14 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
-       
-        let storyboard = UIStoryboard(name: "LogInStoryBoard", bundle: .main)
-        if let initialViewController = storyboard.instantiateInitialViewController() {
-        window?.rootViewController = initialViewController
-        window?.makeKeyAndVisible()
-        }
-       
+        configureInitialRootViewController(for: window!)
+//       
+//        let storyboard = UIStoryboard(name: "LogInStoryBoard", bundle: .main)
+//        if let initialViewController = storyboard.instantiateInitialViewController() {
+//        window?.rootViewController = initialViewController
+//        window?.makeKeyAndVisible()
+//        }
+//       
         
         GMSServices.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")
         GMSPlacesClient.provideAPIKey("AIzaSyBUG325imlLGazifftWDvmEb3E_AxXJlSo")
@@ -75,3 +75,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    func configureInitialRootViewController(for window: UIWindow) {
+    let defaults = UserDefaults.standard
+        let initialViewController: UIViewController
+        
+        if Auth.auth().currentUser != nil,
+            let userData = defaults.object(forKey: "currentUser") as? Data,
+            let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? HardCodedUsers {
+                HardCodedUsers.setCurrent(user)
+                initialViewController = UIStoryboard.initialViewController(for: .main)
+        }
+        else {
+            let storyboard = UIStoryboard(name: "LogInStoryBoard", bundle: .main)
+            guard let controller = storyboard.instantiateInitialViewController() else {
+                fatalError()
+            }
+            initialViewController = controller
+        }
+        
+        window.rootViewController = initialViewController
+        window.makeKeyAndVisible()
+        
+    }
+
+}
