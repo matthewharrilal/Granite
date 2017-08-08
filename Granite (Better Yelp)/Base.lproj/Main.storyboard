@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,24 +76,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What intrigues you?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T9q-yu-dGb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What intrigues you?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T9q-yu-dGb">
                                 <rect key="frame" x="34" y="389" width="307" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Increase range in Settings for better search results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8S-9i-duA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increase range in Settings for better search results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8S-9i-duA">
                                 <rect key="frame" x="0.0" y="427" width="375" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="ff0-fe-waG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cze-pf-wsJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cze-pf-wsJ">
                                 <rect key="frame" x="130" y="492" width="115" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="HrL-g3-EWV"/>
+                                    <constraint firstAttribute="width" constant="115" id="uZI-i5-Y5Y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,19 +107,25 @@
                                     <segue destination="yeZ-fa-3u8" kind="show" identifier="submit" id="eQo-sI-trS"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-pJ-MDp">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-pJ-MDp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="366"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The user has been here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ9-qf-TGD">
-                                <rect key="frame" x="116" y="547" width="143" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.68627450980392157" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cze-pf-wsJ" secondAttribute="bottom" constant="119" id="6Bn-ev-e2h"/>
+                            <constraint firstItem="DzI-pJ-MDp" firstAttribute="leading" secondItem="I8S-9i-duA" secondAttribute="leading" id="F3c-hn-pW9"/>
+                            <constraint firstItem="DzI-pJ-MDp" firstAttribute="trailing" secondItem="I8S-9i-duA" secondAttribute="trailing" id="GDD-CR-Mzw"/>
+                            <constraint firstItem="DzI-pJ-MDp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GWw-3E-LTk"/>
+                            <constraint firstAttribute="trailing" secondItem="DzI-pJ-MDp" secondAttribute="trailing" id="Um5-OI-s45"/>
+                            <constraint firstItem="I8S-9i-duA" firstAttribute="top" secondItem="T9q-yu-dGb" secondAttribute="bottom" constant="8" symbolic="YES" id="ctM-LA-7WE"/>
+                            <constraint firstItem="I8S-9i-duA" firstAttribute="centerX" secondItem="Cze-pf-wsJ" secondAttribute="centerX" id="eHb-6b-hy8"/>
+                            <constraint firstItem="T9q-yu-dGb" firstAttribute="top" secondItem="DzI-pJ-MDp" secondAttribute="bottom" constant="23" id="i5a-gZ-mph"/>
+                            <constraint firstItem="T9q-yu-dGb" firstAttribute="centerX" secondItem="I8S-9i-duA" secondAttribute="centerX" id="iAb-hy-qq9"/>
+                            <constraint firstItem="DzI-pJ-MDp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jNt-Bo-9kb"/>
+                            <constraint firstItem="Cze-pf-wsJ" firstAttribute="top" secondItem="I8S-9i-duA" secondAttribute="bottom" constant="8" symbolic="YES" id="wTc-ka-uwa"/>
+                            <constraint firstItem="T9q-yu-dGb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="yCa-Wt-Era"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Granite" id="lcb-20-Wmp">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="K0x-rb-gJS">
