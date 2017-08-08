@@ -63,6 +63,7 @@ class LogInViewController: UIViewController {
                 // return
                 // This get hits when you are signing in with a user that doesnt exist and the opposite for the else statement
                 
+                // So lets explain what is essentially happening here and what is occuring is that we are saying if the error is occuring here we want these login alerts to occur which makes sense because we know if something is nil it means that there is no data within it now if there is no data within an error that means the error is non existent
             } else {
                 print("User is just signed in and their user defaults has not been set yet")
                 UserService.show(forUID: (user?.uid)!, completion: { (user) in
@@ -80,9 +81,10 @@ class LogInViewController: UIViewController {
                 self.performSegue(withIdentifier: "toHome", sender: nil)
                 
             }
+            // So what is happening in this else statement is that we are saying before the user defaults stores the user locally we want to print this statement that the user has been signed in but they havent been saved to the user defaults
+            // Now the problem that was occuring that the user isnt being saved to user defaults and as a result of that the corresponding print statement isnt being printed, and the reason being for this problem occuring was that the no user data was being passed into the completion handler and the way we went about this was in our hard coded user services was because we were just accounting for the simple fact that the user had been already logged in therefore we werent writing to user defaults but in our case there was no existing user logged in therefore meaning we had to accoutn for a user logging in and then saving them to user defaults
         }
-       // So essentially what we are doing here is that we are doing here is that if the error is not equal to nil meaning that there is an error they will be me with the proper log in alert based on the localized description error and where as in the else statement if everything basically checks out and everything is verified they can be on their merry way
-        
+      
         // The reason we changed the segue from the button to the next view controller to the home to the next view controller is  becuase if we left it that way we would have been stuck with a button that just segues even if the alerts are present and we see that we do not want that if their is an error we want our users to be presented with an error 
     
     }

@@ -51,5 +51,6 @@ struct UserService {
             completion(user)
         })
     }
+    // Now upon further inspection what this neccesarily does is that it lets us write to user defaults even when there is no current logged in user therefore what this enable us to do is log in with a user and the next time they open up the app they are automatically logged in and if there is already a user logged in we dont want  them to be written to user defaults once again they can just be sent on their merry way
     
 }
